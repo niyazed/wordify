@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WordInk</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+</head>
+
+<body>
+    <br>
+    <br>
+    <!-- second section start -->
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <!-- first column -->
+                <div class="column is-narrow">
+                    <div class="box" style="width: 900px;">
+                        <!-- blog text -->
+                        <div class="field">
+                            <label class="label">Text</label>
+                            <div class="control">
+                                <textarea class="textarea" placeholder="Write your text here.." rows="10"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- file upload -->
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="file" name="document">
+
+                            <hr>
+
+
+                            <!-- submit -->
+                            <div class="field is-grouped">
+                                <div class="control">
+                                    <button class="button is-link" type="submit">Submit</button>
+                                </div>
+                                <div class="control">
+                                    <button class="button is-link is-light">Cancel</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                <!-- first column end -->
+
+
+
+                <!-- second column -->
+                <div class="column">
+                    <div class="box">
+                        <p class="title is-4">Wordart</p>
+                        <hr>
+                        <figure class="image is-4by3">
+                            <img src="" alt="Placeholder image">
+                        </figure>
+                    </div>
+                    <div class="box">
+                        <p class="title is-4">Keywords</p>
+                        <hr>
+                        <div class="tags">
+                            <span class="tag">One</span>
+                            <span class="tag">Two</span>
+                            <span class="tag">Three</span>
+                            <span class="tag">Four</span>
+                            <span class="tag">Five</span>
+                            <span class="tag">Six</span>
+                            <span class="tag">Seven</span>
+                            <span class="tag">Eight</span>
+                            <span class="tag">Nine</span>
+                            <span class="tag">Ten</span>
+                            <span class="tag">Eleven</span>
+                            <span class="tag">Twelve</span>
+                            <span class="tag">Thirteen</span>
+                            <span class="tag">Fourteen</span>
+                            <span class="tag">Fifteen</span>
+                            <span class="tag">Sixteen</span>
+                            <span class="tag">Seventeen</span>
+                            <span class="tag">Eighteen</span>
+                            <span class="tag">Nineteen</span>
+                            <span class="tag">Twenty</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- second section end -->
+</body>
+
+</html>
