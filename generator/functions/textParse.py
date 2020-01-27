@@ -2,7 +2,12 @@ from PIL import Image
 import pytesseract
 from tika import parser
 import docx2txt
+import os
+
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+# os.environ["TIKA_SERVER_JAR"] = 'generator/functions/tika-server.jar'
+# TIKA_SERVER_JAR="file:////tika-server.jar"
+
 class textParse:
   def from_doc(path):
     text = docx2txt.process(path)

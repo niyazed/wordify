@@ -9,11 +9,17 @@ from wordcloud import WordCloud, STOPWORDS
 class generate:
     def __init__(self, text):
             self.text = text
+
+
+
     def clean(self):
         text = self.text.lower()
         printable = set(string.printable)
         text = filter(lambda x: x in printable, text) #filter funny characters, if any.
         self.text = "".join(text)
+
+
+
     def process_text(self):
         self.clean()
         Cleaned_text = self.text
@@ -64,29 +70,41 @@ class generate:
         for word in lemmatized_text:
             if word not in stopwords_plus:
                 processed_text.append(word)
-        self.text = processed_text     
+        self.text = processed_text    
+
+
+
+
     def generate_keyword(self):
         self.process_text()
         words = self.text #read the words into a list.
         uniqWords = sorted(set(words)) #remove duplicate words and sort
+
         dict={}
         for word in uniqWords:
             #print(words.count(word), word)
             dict[word]=words.count(word)
         sd = sorted(dict.items(), key=lambda kv: kv[1])
         sd.reverse()
+        
         return sd
+
+
 
 
     def generate_wordart(self):
         words = self.text #read the words into a list.
+
         dict ={}
         for word in words:
             dict[word]=0
+
         for word in words:
             dict[word]=dict[word]+1
+
         sorted_x = sorted(dict.items(), key=lambda kv: kv[1])
         sorted_x.reverse()
+
         l = []
         max_kw = 10
         for i in range(0,max_kw):

@@ -18,32 +18,52 @@ import sys
 
 def generator(request):
     if request.method == 'POST':
-        uploaded_file = request.FILES['document']
 
-        ftype = filetype(uploaded_file.name)
-        print(ftype)
+        if request.POST.get('blog'):
+            text = request.POST.get('blog')
+
+        else:
+            uploaded_file = request.FILES['document']
+            print(request.FILES['document'])
+
+            ftype = filetype(uploaded_file.name)
+            print("[INFO] Filetype: ", ftype)
+            
+            if ftype == "pdf":
+                text = textParse.from_pdf(uploaded_file)
+            if ftype == "doc":
+                text = textParse.from_doc(uploaded_file)
+            if ftype == "img":
+                text = textParse.from_image(uploaded_file)
+
         
-        if ftype == "pdf":
-            text = textParse.from_pdf(uploaded_file)
-        if ftype == "doc":
-            text = textParse.from_doc(uploaded_file)
-        if ftype == "img":
-            text = textParse.from_image(uploaded_file)
+        try:
+            mk = generate(text)
+            kw = mk.generate_keyword()
 
-        print(text)
+            keys = []
+            max_kw = 10
 
-        mk = generate(text)
-        kw = mk.generate_keyword()
+            for i in range(0,max_kw):
+                keys.append(kw[i][0])
 
-        hmap = {}
+            hmap = {}
+            for x in kw:
+                hmap[x[0]]=x[1]
 
-        for x in kw:
-            hmap[x[0]]=x[1]
-        wordcloud = WordCloud(font_path='generator/functions/kalpurush.ttf',min_font_size = 10, background_color="white").generate_from_frequencies(hmap)
-        wordcloud.to_file('wordarts/'+uploaded_file.name+'.png')
-        print(kw[:10])
-        
-    return render(request, 'generate.html')
+            # wordart = uploaded_file.name.split('.')[0] +'.png'
+            wordart = 'wordart.png'
+            wordcloud = WordCloud(font_path='generator/functions/kalpurush.ttf',min_font_size = 10, background_color="white").generate_from_frequencies(hmap)
+            wordcloud.to_file('wordarts/'+ wordart)
+            print(keys)
+            
+            return render(request, 'generate.html', {'wordart': wordart, 'keywords' : keys})
+
+        except:
+            print("[INFO] Facing issues in generating")
+
+    else:
+        return render(request, 'generate.html')
 
 # Detemine the filetype
 def filetype(name):
