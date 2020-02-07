@@ -1,6 +1,11 @@
 # Wordify
 
 ## Installation
+Install all dependencies by running
+```python
+      $ pip install -r requirements.txt
+```
+
 ### Postgres and pgadmin Installation
 --------------------------------
 
@@ -10,7 +15,7 @@ Youtube link -
 
 ### NLTK
 -----
-```
+```python
 type 'python' in CLI
 --------------------
 >>> import nltk
@@ -22,7 +27,7 @@ type 'python' in CLI
 -----------
 First you should install binary:
 ##### On Linux
-```
+```sh
     $ sudo apt-get update
     $ sudo apt-get install tesseract-ocr
     $ sudo apt-get install libtesseract-dev
@@ -32,7 +37,7 @@ First you should install binary:
 brew install tesseract
 `
 ##### On Windows
-```
+```python
 download binary from https://github.com/UB-Mannheim/tesseract/wiki. 
 then add pytesseract.pytesseract.tesseract_cmd = 'C:\Program Files (x86)\Tesseract-OCR\tesseract.exe' to your script.
 Then you should install python package using pip:
