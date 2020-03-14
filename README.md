@@ -1,5 +1,10 @@
 # Wordify
 
+Start the app -
+```python
+      $ python manage.py runserver
+```
+
 ## Installation
 Install all dependencies by running
 ```python
