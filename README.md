@@ -6,13 +6,6 @@ Install all dependencies by running
       $ pip install -r requirements.txt
 ```
 
-### Postgres and pgadmin Installation
---------------------------------
-
-Youtube link - 
-1. https://www.youtube.com/watch?v=Vdzb7JTPnGk
-2. https://www.youtube.com/watch?v=-LwI4HMR_Eg
-
 ### NLTK
 -----
 ```python
@@ -45,3 +38,4 @@ Then you should install python package using pip:
     $ pip install tesseract
     $ pip install tesseract-ocr
 ```
+
