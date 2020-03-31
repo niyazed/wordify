@@ -14,7 +14,16 @@ import pytesseract
 
 import os
 import sys
+
+from django.core.files.storage import FileSystemStorage
 # Create your views here.
+
+# def upload(request):
+#     if request.method == 'POST':
+#         uploaded_file = request.FILES['document']
+#         fs = FileSystemStorage()
+#         fs.save(uploaded_file.name, uploaded_file)
+#     return render(request, 'html')
 
 def generator(request):
     if request.method == 'POST':
@@ -25,12 +34,14 @@ def generator(request):
         else:
             uploaded_file = request.FILES['document']
             print(request.FILES['document'])
+            fs = FileSystemStorage()
+            fs.save(uploaded_file.name, uploaded_file)
 
             ftype = filetype(uploaded_file.name)
             print("[INFO] Filetype: ", ftype)
             
             if ftype == "pdf":
-                text = textParse.from_pdf(uploaded_file)
+                text = textParse.from_pdf(os.path.join('documents',str(uploaded_file)))
             if ftype == "doc":
                 text = textParse.from_doc(uploaded_file)
             if ftype == "img":
@@ -51,8 +62,8 @@ def generator(request):
             for x in kw:
                 hmap[x[0]]=x[1]
 
-            # wordart = uploaded_file.name.split('.')[0] +'.png'
-            wordart = 'wordart.png'
+            wordart = uploaded_file.name.split('.')[0] +'.png'
+            # wordart = 'wordart.png'
             wordcloud = WordCloud(font_path='generator/functions/kalpurush.ttf',min_font_size = 10, background_color="white").generate_from_frequencies(hmap)
             wordcloud.to_file('wordarts/'+ wordart)
             print(keys)

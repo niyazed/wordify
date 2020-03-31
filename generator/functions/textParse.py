@@ -4,7 +4,7 @@ from tika import parser
 import docx2txt
 import os
 
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+# pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 # os.environ["TIKA_SERVER_JAR"] = 'generator/functions/tika-server.jar'
 # TIKA_SERVER_JAR="file:////tika-server.jar"
 

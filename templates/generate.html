@@ -1,4 +1,4 @@
-{% load static from staticfiles %}
+{% load static%}
 
 <!DOCTYPE html>
 <html>
@@ -14,20 +14,22 @@
 <body>
     <!-- second section start -->
     <section class="section">
-        <div class="container">
-                <p style="text-align:left;"><img src="{% static 'wordandkeys.jpg' %}" alt="wordandkeys.jpg" width="150px"></p>
+        <div class="container column is-half is-offset-one-quarter">
+                <!-- <p style="text-align:left;"><img src="{% static 'wordandkeys.jpg' %}" alt="wordandkeys.jpg" width="150px"></p> -->
                 <br><br>
             <div class="columns">
                 <!-- first column -->
                 <div class="column is-narrow">
-                    <div class="box" style="width: 900px;">
+                    <div class="box" >
                         <!-- blog text -->
                         <div class="field">
-                            <label class="label">Text</label>
+                            <p class="title is-4">Upload File</p>
+                            <!-- <h6 class="subtitle is-6">eg. pdf, doc, image</h6> -->
+                            <br>
                             <div class="control">
                                 <form method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
-                                    <textarea class="textarea" placeholder="Write your text here.." rows="10" name="blog"></textarea>
+                                    <!-- <textarea class="textarea" placeholder="Write your text here.." rows="10" name="blog"></textarea> -->
                             </div>
                         </div>
 
