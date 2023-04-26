@@ -19,7 +19,7 @@ if not os.path.exists(WORDART_PATH):
     os.mkdir(WORDART_PATH)
 
 
-app = FastAPI()
+app = FastAPI(title="Wordify Swagger")
 app.mount("/static", StaticFiles(directory="wordarts"), name="static")
 
 
