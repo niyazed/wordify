@@ -1,46 +1,29 @@
 # Wordify
 
-Start the app -
-```python
-      $ python manage.py runserver
-```
+Wordify is a simple tool to convert Image or PDF to a Wortart and extract keywords from it.
 
-## Installation
-Install all dependencies by running
-```python
-      $ pip install -r requirements.txt
-```
+See the FastAPI Docs [Swagger](https://wordify.herokuapp.com/).
 
-### NLTK
------
-```python
-type 'python' in CLI
---------------------
->>> import nltk
->>> nltk.download('punkt')
->>> nltk.download('averaged_perceptron_tagger')
->>> nltk.download('wordnet')
-````
-### Pytesseract
------------
-First you should install binary:
-##### On Linux
-```sh
-    $ sudo apt-get update
-    $ sudo apt-get install tesseract-ocr
-    $ sudo apt-get install libtesseract-dev
-```
-##### On Mac
-`
-brew install tesseract
-`
-##### On Windows
-```python
-download binary from https://github.com/UB-Mannheim/tesseract/wiki. 
-then add pytesseract.pytesseract.tesseract_cmd = 'C:\Program Files (x86)\Tesseract-OCR\tesseract.exe' to your script.
-Then you should install python package using pip:
+## Start the server
 
-    $ pip install tesseract
-    $ pip install tesseract-ocr
+```bash
+$ docker compose up -d
 ```
+Omit the `-d` flag to see the logs.
 
+## Response
+
+The response is a JSON object with the following structure:
+
+```json
+{
+  "wordart_url": "The URL of the wordart image",
+  "top_ten_keywords": [
+    "keyword1",
+    "keyword2",
+    "keyword3"
+    ...
+    ...
+  ]
+}
+```

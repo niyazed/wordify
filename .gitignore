@@ -1,0 +1,13 @@
+.DS_Store
+*.png
+*.jpg
+*.gif
+*.pyc
+*.pyo
+*.pdf
+*.docx
+*.doc
+*.xlsx
+*.xls
+*.pptx
+*.ppt

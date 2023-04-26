@@ -1,0 +1,11 @@
+version: '3' 
+services:
+  backend:
+    build: .
+    image: "wordify"
+    ports:
+      - "8001:8001"
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    command: uvicorn main:app --host 0.0.0.0 --port 8001 --reload
