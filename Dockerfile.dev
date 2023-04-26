@@ -13,6 +13,3 @@ RUN python -c "import nltk; nltk.download('averaged_perceptron_tagger');"
 RUN python -c "import nltk; nltk.download('wordnet');"
 RUN python -c "import nltk; nltk.download('omw-1.4');"
 
-COPY . .
-EXPOSE 8000
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -1,8 +1,10 @@
 version: '3' 
 services:
   backend:
-    build: .
-    image: "wordify"
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    image: "wordify-dev"
     ports:
       - "8001:8001"
     volumes:
