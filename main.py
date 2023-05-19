@@ -8,7 +8,7 @@ import os
 import time
 import socket
 
-HOST = '0.0.0.0'  #socket.gethostbyname(socket.gethostname())
+HOST = socket.gethostbyname(socket.gethostname())  #'0.0.0.0'
 MEDIA_PATH = 'media'
 WORDART_PATH = 'wordarts'
 
