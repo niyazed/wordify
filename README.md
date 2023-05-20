@@ -2,7 +2,6 @@
 
 Wordify is a simple tool to convert Image or PDF to a Wortart and extract keywords from it.
 
-See the FastAPI Docs [Swagger](https://wordify-niyazhashem.b4a.run/docs).
 
 ## Start the server
 
